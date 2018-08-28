@@ -1,17 +1,16 @@
-package com.android.bojan.todayhappy.view;
+package com.android.bojan.happytoday.view;
 
 import android.support.annotation.LayoutRes;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.Toast;
 
 import com.android.bojan.base.base.BaseActivity;
-import com.android.bojan.todayhappy.R;
-import com.android.bojan.todayhappy.adapter.JokeAdapter;
-import com.android.bojan.todayhappy.bean.JokeBean;
-import com.android.bojan.todayhappy.contract.JokeContract;
-import com.android.bojan.todayhappy.presenter.JokePresenter;
+import com.android.bojan.happytoday.R;
+import com.android.bojan.happytoday.adapter.JokeAdapter;
+import com.android.bojan.happytoday.bean.JokeBean;
+import com.android.bojan.happytoday.contract.JokeContract;
+import com.android.bojan.happytoday.presenter.JokePresenter;
 
 import java.util.ArrayList;
 import java.util.List;

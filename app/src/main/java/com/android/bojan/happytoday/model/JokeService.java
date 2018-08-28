@@ -1,6 +1,6 @@
-package com.android.bojan.todayhappy.model;
+package com.android.bojan.happytoday.model;
 
-import com.android.bojan.todayhappy.bean.JokeBean;
+import com.android.bojan.happytoday.bean.JokeBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

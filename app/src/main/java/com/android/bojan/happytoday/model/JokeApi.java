@@ -1,4 +1,4 @@
-package com.android.bojan.todayhappy.model;
+package com.android.bojan.happytoday.model;
 
 import com.android.bojan.base.retrofit.BaseApiImpl;
 

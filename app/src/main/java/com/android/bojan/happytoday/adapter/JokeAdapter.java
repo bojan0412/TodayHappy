@@ -1,4 +1,4 @@
-package com.android.bojan.todayhappy.adapter;
+package com.android.bojan.happytoday.adapter;
 
 
 import android.content.Context;
@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.bojan.todayhappy.R;
-import com.android.bojan.todayhappy.bean.JokeBean;
+import com.android.bojan.happytoday.R;
+
+import com.android.bojan.happytoday.bean.JokeBean;
 
 import java.util.List;
 

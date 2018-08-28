@@ -1,4 +1,4 @@
-package com.android.bojan.todayhappy;
+package com.android.bojan.happytoday;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.android.bojan.todayhappy", appContext.getPackageName());
+        assertEquals("com.android.bojan.happytoday", appContext.getPackageName());
     }
 }

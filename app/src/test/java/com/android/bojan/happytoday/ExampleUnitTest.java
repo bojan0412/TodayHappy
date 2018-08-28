@@ -1,4 +1,4 @@
-package com.android.bojan.todayhappy;
+package com.android.bojan.happytoday;
 
 import org.junit.Test;
 

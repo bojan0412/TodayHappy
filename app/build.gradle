@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    defaultConfig {
-        applicationId "com.android.bojan.todayhappy"
+    defaultConfig {   
+        applicationId "com.android.bojan.happytoday"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1

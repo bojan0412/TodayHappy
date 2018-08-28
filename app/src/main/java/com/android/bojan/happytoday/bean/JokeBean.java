@@ -1,4 +1,4 @@
-package com.android.bojan.todayhappy.bean;
+package com.android.bojan.happytoday.bean;
 
 import java.util.List;
 

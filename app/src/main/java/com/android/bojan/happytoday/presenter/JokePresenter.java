@@ -1,13 +1,13 @@
-package com.android.bojan.todayhappy.presenter;
+package com.android.bojan.happytoday.presenter;
 
 import android.util.Log;
 
 import com.android.bojan.base.base.baseImpl.BasePresenterImpl;
 import com.android.bojan.base.retrofit.ExceptionHelper;
-import com.android.bojan.todayhappy.bean.JokeBean;
-import com.android.bojan.todayhappy.contract.JokeContract;
-import com.android.bojan.todayhappy.model.JokeApi;
-import com.android.bojan.todayhappy.model.JokeService;
+import com.android.bojan.happytoday.bean.JokeBean;
+import com.android.bojan.happytoday.contract.JokeContract;
+import com.android.bojan.happytoday.model.JokeApi;
+import com.android.bojan.happytoday.model.JokeService;
 
 import java.util.List;
 

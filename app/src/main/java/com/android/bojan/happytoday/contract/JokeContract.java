@@ -1,8 +1,8 @@
-package com.android.bojan.todayhappy.contract;
+package com.android.bojan.happytoday.contract;
 
 import com.android.bojan.base.base.BasePresenter;
 import com.android.bojan.base.base.BaseView;
-import com.android.bojan.todayhappy.bean.JokeBean;
+import com.android.bojan.happytoday.bean.JokeBean;
 
 import java.util.List;
 

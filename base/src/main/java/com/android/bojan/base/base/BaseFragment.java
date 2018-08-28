@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.bojan.base.utils.ActivityUtils;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -16,7 +18,7 @@ import butterknife.Unbinder;
  * Create by bojan
  * on 2018/8/27
  */
-public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView {
+public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView ,Lifeful{
     protected P mPresenter;
     private boolean mIsViewCreate = false;
     private boolean mIsViewVisible = false;
@@ -108,4 +110,11 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         super.onDestroyView();
     }
 
+    @Override
+    public boolean isAlive() {
+        return  activityIsAlive();
+    }
+    public boolean activityIsAlive() {
+        return getActivity() != null && ActivityUtils.activityIsAlive(getActivity());
+    }
 }

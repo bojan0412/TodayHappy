@@ -12,13 +12,15 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.bojan.base.utils.ActivityUtils;
+
 import butterknife.ButterKnife;
 
 /**
  * Create by bojan
  * on 2018/8/27
  */
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView,Lifeful {
 
     protected P mPresenter;
 
@@ -76,4 +78,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         ButterKnife.bind(this);
     }
 
+    public boolean activityIsAlive() {
+        return ActivityUtils.activityIsAlive(this);
+    }
+
+    @Override
+    public boolean isAlive() {
+        return activityIsAlive();
+    }
 }

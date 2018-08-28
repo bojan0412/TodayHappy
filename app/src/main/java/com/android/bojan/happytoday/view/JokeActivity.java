@@ -26,7 +26,7 @@ public class JokeActivity extends BaseActivity<JokePresenter> implements JokeCon
 
     @Override
     protected void initView() {
-        super.initView();
+
         mPresenter.getData();
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         mAdapter = new JokeAdapter(mDatas);

@@ -28,8 +28,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         mPresenter = initPresenter();
+        parpareBar();
         initView();
     }
+
+    protected abstract void initView();
 
     @Override
     protected void onDestroy() {
@@ -44,7 +47,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     protected abstract @LayoutRes int getLayout();
 
-    protected void initView() {
+    protected void parpareBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

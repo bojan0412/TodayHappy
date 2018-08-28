@@ -1,10 +1,9 @@
 package com.android.bojan.happytoday;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.android.bojan.happytoday.R;
 import com.android.bojan.happytoday.view.JokeActivity;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.android.bojan.happytoday.model;
+package com.android.bojan.happytoday.model.api;
 
 import com.android.bojan.base.retrofit.BaseApiImpl;
 
@@ -9,7 +9,7 @@ import com.android.bojan.base.retrofit.BaseApiImpl;
 public class JokeApi extends BaseApiImpl {
     private static JokeApi sJokeApi = new JokeApi(JokeService.BASE_URL);
 
-    public JokeApi(String baseUrL) {
+    private JokeApi(String baseUrL) {
         super(baseUrL);
     }
 

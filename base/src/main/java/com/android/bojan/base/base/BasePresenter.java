@@ -27,4 +27,5 @@ public interface BasePresenter {
      * 注销所有请求
      */
     void unDisposable();
+
 }

@@ -29,7 +29,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = initPresenter();
+         initPresenter();
     }
 
     @Override
@@ -44,9 +44,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         this.mContext = context;
     }
 
-    private P initPresenter() {
-        return null;
-    }
+    protected abstract void initPresenter() ;
 
     @Nullable
     @Override
@@ -57,7 +55,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         return view;
     }
 
-    abstract void setLayoutView(ViewGroup container, View view);
+    abstract protected void setLayoutView(ViewGroup container, View view);
 
 
     @Override

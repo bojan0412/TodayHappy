@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/news"
+        id="@+id/tab_news"
+        title="@string/frag_news_1" />
+    <tab
+        icon="@drawable/joke"
+        id="@+id/tab_joke"
+        title="@string/frag_joke_2" />
+    <tab
+        icon="@drawable/pic"
+        id="@+id/tab_pic"
+        title="@string/frag_fun_pic_3" />
+    <tab
+
+        icon="@drawable/today"
+        id="@+id/tab_today"
+        title="@string/frag_history_4" />
+    <tab
+        icon="@drawable/about"
+        id="@+id/tab_about"
+        title="@string/frag_about_5" />
+</tabs>

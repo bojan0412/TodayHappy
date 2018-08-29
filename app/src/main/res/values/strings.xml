@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">TodayHappy</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="main">首页</string>
+    <string name="frag_news_1">新闻</string>
+    <string name="frag_joke_2">笑话</string>
+    <string name="frag_fun_pic_3">趣图</string>
+    <string name="frag_history_4">今日</string>
+    <string name="frag_about_5">关于</string>
+    <string name="frag_weather_6">天气预报</string>
+    <string name="more">更多</string>
+    <string name="clean">清理缓存</string>
+    <string name="night">夜间模式</string>
+    <string name="day">日间模式</string>
 </resources>

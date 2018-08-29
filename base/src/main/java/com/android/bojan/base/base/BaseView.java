@@ -8,4 +8,5 @@ public interface BaseView {
     void showLoadingDialog();
 
     void dismissLoadingDialog();
+
 }

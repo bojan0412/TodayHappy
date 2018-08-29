@@ -1,4 +1,4 @@
-package com.android.bojan.base.base.baseImpl;
+package com.android.bojan.happytoday.presenter;
 
 import com.android.bojan.base.base.BasePresenter;
 import com.android.bojan.base.base.BaseView;
@@ -11,10 +11,10 @@ import io.reactivex.disposables.Disposable;
  * on 2018/8/27
  */
 public abstract class BasePresenterImpl<V extends BaseView> implements BasePresenter {
-    protected V mView;
+    V mView;
     private CompositeDisposable mCompositeDisposable;
 
-    public BasePresenterImpl(V view) {
+    BasePresenterImpl(V view) {
         this.mView = view;
     }
 

@@ -23,7 +23,7 @@ public class BaseApiImpl implements BaseApi {
     protected OkHttpClient.Builder sOkHttpClientBuilder = new OkHttpClient.Builder();
 
 
-    public BaseApiImpl(String baseUrL) {
+    protected BaseApiImpl(String baseUrL) {
         sRetrofitBuilder.addConverterFactory(ScalarsConverterFactory.create()).addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).client(sOkHttpClientBuilder.addInterceptor(getLoggerInterceptor()).build())
                 .baseUrl(baseUrL);

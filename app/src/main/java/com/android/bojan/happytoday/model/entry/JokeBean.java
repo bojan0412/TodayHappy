@@ -1,4 +1,4 @@
-package com.android.bojan.happytoday.bean;
+package com.android.bojan.happytoday.model.entry;
 
 import java.util.List;
 

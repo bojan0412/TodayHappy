@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/main">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nv_news"
+                    android:icon="@drawable/news"
+                    android:title="@string/frag_news_1" />
+                <item
+                    android:id="@+id/nv_duanzi"
+                    android:icon="@drawable/joke"
+                    android:title="@string/frag_joke_2" />
+                <item
+                    android:id="@+id/nv_fun_pic"
+                    android:icon="@drawable/pic"
+                    android:title="@string/frag_fun_pic_3" />
+                <item
+                    android:id="@+id/nv_today_of_history"
+                    android:icon="@drawable/today"
+                    android:title="@string/frag_history_4" />
+                <item
+                    android:id="@+id/nv_about"
+                    android:icon="@drawable/about"
+                    android:title="@string/frag_about_5" />
+            </group>
+        </menu>
+
+    </item>
+
+
+    <item android:title="更多">
+        <menu>
+            <item
+                android:id="@+id/nv_clear_cache"
+                android:icon="@drawable/clean"
+                android:title="@string/clean" />
+            <item
+                android:id="@+id/nv_night_theme"
+                android:icon="@drawable/night"
+                android:title="@string/night" />
+        </menu>
+    </item>
+
+</menu>

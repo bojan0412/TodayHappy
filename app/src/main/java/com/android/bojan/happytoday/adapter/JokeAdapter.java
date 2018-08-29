@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.android.bojan.happytoday.R;
 
-import com.android.bojan.happytoday.bean.JokeBean;
+import com.android.bojan.happytoday.model.entry.JokeBean;
 
 import java.util.List;
 

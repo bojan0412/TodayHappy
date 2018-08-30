@@ -18,24 +18,34 @@ import butterknife.Unbinder;
  * Create by bojan
  * on 2018/8/27
  */
-public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView ,Lifeful{
+public abstract class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView, Lifeful {
     protected P mPresenter;
-    private boolean mIsViewCreate = false;
-    private boolean mIsViewVisible = false;
+    private boolean mIsViewCreated = false;  //isViewInitiated
+    private boolean mIsViewVisible = false;  //isVisibleToUser
+    private boolean mIsDataInitiated = false;
     public Context mContext;
-    private boolean mIsFirstLoad = true;
+
     private Unbinder mUnbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         initPresenter();
+        mPresenter=initPresenter();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mIsViewCreate = true;
+        mIsViewCreated = true;
+        prepareFetchData();
+    }
+
+    public void prepareFetchData() {
+        if (mIsViewVisible && mIsViewCreated && (!mIsDataInitiated)) {
+            fetchData();
+            mIsDataInitiated = true;
+        }
+
     }
 
     @Override
@@ -44,7 +54,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         this.mContext = context;
     }
 
-    protected abstract void initPresenter() ;
+    protected abstract P initPresenter();
 
     @Nullable
     @Override
@@ -62,17 +72,13 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         mIsViewVisible = isVisibleToUser;
-        if (isVisibleToUser && mIsViewCreate) {
-            visibleToUser();
-        }
+        prepareFetchData();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mIsViewVisible) {
-            visibleToUser();
-        }
+        prepareFetchData();
     }
 
     /**
@@ -81,27 +87,18 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected abstract int getLayoutID();
 
     /**
-     * 懒加载，第一次加载
-     */
-    abstract protected void firstLoad();
-
-    /**
      * 懒加载
-     * 用户可见
      */
-    protected void visibleToUser() {
-        if (mIsFirstLoad) {
-            firstLoad();
-            mIsFirstLoad = false;
-        }
-    }
+    abstract protected void fetchData();
+
+
 
     @Override
     public void onDestroyView() {
         if (mPresenter != null) {
             mPresenter.detach();
         }
-        mIsViewCreate = false;
+        mIsViewCreated = false;
         if (mUnbinder != null) {
             mUnbinder.unbind();
         }
@@ -110,8 +107,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
 
     @Override
     public boolean isAlive() {
-        return  activityIsAlive();
+        return activityIsAlive();
     }
+
     public boolean activityIsAlive() {
         return getActivity() != null && ActivityUtils.activityIsAlive(getActivity());
     }

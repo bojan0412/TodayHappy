@@ -16,6 +16,7 @@ import com.android.bojan.base.base.BaseActivity;
 import com.android.bojan.happytoday.contract.MainViewContract;
 import com.android.bojan.happytoday.presenter.MainViewPresenter;
 import com.android.bojan.happytoday.view.JokeFragment;
+import com.android.bojan.happytoday.view.NewsFragment;
 import com.blankj.utilcode.util.SPUtils;
 import com.bumptech.glide.Glide;
 import com.roughike.bottombar.BottomBar;
@@ -23,7 +24,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity<MainViewPresenter> implements MainViewContract.View {
+public class MainActivity extends BaseActivity<MainViewContract.Persenter> implements MainViewContract.View {
     @BindView(R.id.fl_content_activity_main)
     FrameLayout mFlContent;
     @BindView(R.id.nv_left)
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity<MainViewPresenter> implements Mai
     @BindView(R.id.bottom_bar)
     BottomBar mBottomBar;
     private JokeFragment mJokeFragment;
+    private NewsFragment mNewsFragment;
     private Fragment mCurrentFragment;
 
     @Override
@@ -88,8 +90,8 @@ public class MainActivity extends BaseActivity<MainViewPresenter> implements Mai
             public void onTabSelected(@IdRes int tabId) {
                 switch (tabId) {
                     case R.id.tab_news:
-                        if (mJokeFragment == null) mJokeFragment = new JokeFragment();
-                        switchFragment(mJokeFragment);
+                        if (mNewsFragment == null) mNewsFragment = new NewsFragment();
+                        switchFragment(mNewsFragment);
                         mNvLeft.setCheckedItem(R.id.nv_news);
                         closeDrawerLayout();
                         break;
@@ -130,14 +132,14 @@ public class MainActivity extends BaseActivity<MainViewPresenter> implements Mai
 
     private void retrieveFragment() {
         FragmentManager manager = getSupportFragmentManager();
-
+        mNewsFragment = (NewsFragment) manager.findFragmentByTag("NewsFragment");
         mJokeFragment = (JokeFragment) manager.findFragmentByTag("JokeFragment");
 
     }
 
 
     @Override
-    public MainViewPresenter initPresenter() {
+    public MainViewContract.Persenter initPresenter() {
         return new MainViewPresenter(this);
     }
 

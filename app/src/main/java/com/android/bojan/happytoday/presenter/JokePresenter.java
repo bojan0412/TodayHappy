@@ -30,7 +30,7 @@ public class JokePresenter extends BasePresenterImpl<JokeContract.view> implemen
 
     @Override
     public void getJokeData(final boolean isLoadMore) {
-        JokeApi.getInstance().getData(JokeService.APP_KEY).subscribeOn(Schedulers.io()).doOnSubscribe(new Consumer<Disposable>() {
+        JokeApi.getInstance().getJokeData(JokeService.APP_KEY_JOKE).subscribeOn(Schedulers.io()).doOnSubscribe(new Consumer<Disposable>() {
             @Override
             public void accept(Disposable disposable) throws Exception {
                 addDisposable(disposable);

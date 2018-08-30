@@ -30,7 +30,7 @@ import butterknife.OnClick;
  * Create by bojan
  * on 2018/8/29
  */
-public class JokeFragment extends BaseFragment<JokePresenter> implements JokeContract.view {
+public class JokeFragment extends BaseFragment<JokeContract.presenter> implements JokeContract.view {
 
     @BindView(R.id.rv_joke)
     RecyclerView mRvJoke;
@@ -49,8 +49,13 @@ public class JokeFragment extends BaseFragment<JokePresenter> implements JokeCon
     }
 
     @Override
-    protected void initPresenter() {
-        mPresenter = new JokePresenter(this);
+    protected void fetchData() {
+
+    }
+
+    @Override
+    protected JokeContract.presenter initPresenter() {
+        return new JokePresenter(this);
     }
 
     @Override
@@ -86,11 +91,6 @@ public class JokeFragment extends BaseFragment<JokePresenter> implements JokeCon
         mSrlJoke.setRefreshing(true);
 
         mPresenter.getJokeData(false);
-    }
-
-    @Override
-    protected void firstLoad() {
-
     }
 
     @Override

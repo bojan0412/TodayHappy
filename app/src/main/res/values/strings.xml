@@ -12,6 +12,7 @@
     <string name="clean">清理缓存</string>
     <string name="night">夜间模式</string>
     <string name="day">日间模式</string>
+    <string name="today_of_history">历史上的今天</string>
     <string-array name="news_type_cn">
         <item>头条</item>
         <item>社会</item>
@@ -36,4 +37,5 @@
         <item>caijing</item>
         <item>shishang</item>
     </string-array>
+    <string name="title_activity_today_detail">TodayDetailActivity</string>
 </resources>

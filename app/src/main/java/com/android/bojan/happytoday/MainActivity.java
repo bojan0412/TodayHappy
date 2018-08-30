@@ -18,6 +18,7 @@ import com.android.bojan.happytoday.presenter.MainViewPresenter;
 import com.android.bojan.happytoday.view.FunGifFragment;
 import com.android.bojan.happytoday.view.JokeFragment;
 import com.android.bojan.happytoday.view.NewsFragment;
+import com.android.bojan.happytoday.view.TodayFragment;
 import com.blankj.utilcode.util.SPUtils;
 import com.bumptech.glide.Glide;
 import com.roughike.bottombar.BottomBar;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
     private JokeFragment mJokeFragment;
     private NewsFragment mNewsFragment;
     private FunGifFragment mFunGifFragment;
+    private TodayFragment mTodayFragment;
     private Fragment mCurrentFragment;
 
     @Override
@@ -100,13 +102,13 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
                     case R.id.tab_joke:
                         if (mJokeFragment == null) mJokeFragment = new JokeFragment();
                         switchFragment(mJokeFragment);
-                        mNvLeft.setCheckedItem(R.id.nv_news);
+                        mNvLeft.setCheckedItem(R.id.nv_joke);
                         closeDrawerLayout();
                         break;
                     case R.id.tab_today:
-                        if (mJokeFragment == null) mJokeFragment = new JokeFragment();
-                        switchFragment(mJokeFragment);
-                        mNvLeft.setCheckedItem(R.id.nv_news);
+                        if (mTodayFragment == null) mTodayFragment = new TodayFragment();
+                        switchFragment(mTodayFragment);
+                        mNvLeft.setCheckedItem(R.id.nv_today_of_history);
                         closeDrawerLayout();
                         break;
                     case R.id.tab_pic:
@@ -137,6 +139,7 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
         mNewsFragment = (NewsFragment) manager.findFragmentByTag("NewsFragment");
         mJokeFragment = (JokeFragment) manager.findFragmentByTag("JokeFragment");
         mFunGifFragment = (FunGifFragment) manager.findFragmentByTag("FunGifFragment");
+        mTodayFragment = (TodayFragment) manager.findFragmentByTag("TodayFragment");
     }
 
 
@@ -152,30 +155,17 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
 
 
     public void switchFragment(Fragment target) {
-
-        // 如果当前的fragment 就是要替换的fragment 就直接return
         if (mCurrentFragment == target) return;
-
-        // 获得 Fragment 事务
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // 如果当前Fragment不为空，则隐藏当前的Fragment
         if (mCurrentFragment != null) {
             transaction.hide(mCurrentFragment);
         }
-
-        // 如果要显示的Fragment 已经添加了，那么直接 show
         if (target.isAdded()) {
             transaction.show(target);
         } else {
-            // 如果要显示的Fragment没有添加，就添加进去
             transaction.add(R.id.fl_content_activity_main, target, target.getClass().getName());
         }
-
-        // 事务进行提交
         transaction.commit();
-
-        //并将要显示的Fragment 设为当前的 Fragment
         mCurrentFragment = target;
     }
 

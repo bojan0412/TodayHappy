@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/ic_smile"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".view.JokeActivity" />
         <activity
             android:name=".view.SplashActivity"
@@ -26,7 +24,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

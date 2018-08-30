@@ -8,7 +8,7 @@
                     android:icon="@drawable/news"
                     android:title="@string/frag_news_1" />
                 <item
-                    android:id="@+id/nv_duanzi"
+                    android:id="@+id/nv_joke"
                     android:icon="@drawable/joke"
                     android:title="@string/frag_joke_2" />
                 <item

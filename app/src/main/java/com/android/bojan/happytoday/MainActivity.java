@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.android.bojan.base.base.BaseActivity;
 import com.android.bojan.happytoday.contract.MainViewContract;
 import com.android.bojan.happytoday.presenter.MainViewPresenter;
+import com.android.bojan.happytoday.view.FunGifFragment;
 import com.android.bojan.happytoday.view.JokeFragment;
 import com.android.bojan.happytoday.view.NewsFragment;
 import com.blankj.utilcode.util.SPUtils;
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
     BottomBar mBottomBar;
     private JokeFragment mJokeFragment;
     private NewsFragment mNewsFragment;
+    private FunGifFragment mFunGifFragment;
     private Fragment mCurrentFragment;
 
     @Override
@@ -64,10 +66,10 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
                         mBottomBar.selectTabAtPosition(1, true);
                         break;
                     case R.id.nv_today_of_history:
-                        mBottomBar.selectTabAtPosition(2, true);
+                        mBottomBar.selectTabAtPosition(3, true);
                         break;
                     case R.id.nv_fun_pic:
-                        mBottomBar.selectTabAtPosition(3, true);
+                        mBottomBar.selectTabAtPosition(2, true);
                         break;
                     case R.id.nv_about:
                         mBottomBar.selectTabAtPosition(4, true);
@@ -108,9 +110,9 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
                         closeDrawerLayout();
                         break;
                     case R.id.tab_pic:
-                        if (mJokeFragment == null) mJokeFragment = new JokeFragment();
-                        switchFragment(mJokeFragment);
-                        mNvLeft.setCheckedItem(R.id.nv_news);
+                        if (mFunGifFragment == null) mFunGifFragment = new FunGifFragment();
+                        switchFragment(mFunGifFragment);
+                        mNvLeft.setCheckedItem(R.id.nv_fun_pic);
                         closeDrawerLayout();
                         break;
                     case R.id.tab_about:
@@ -134,7 +136,7 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
         FragmentManager manager = getSupportFragmentManager();
         mNewsFragment = (NewsFragment) manager.findFragmentByTag("NewsFragment");
         mJokeFragment = (JokeFragment) manager.findFragmentByTag("JokeFragment");
-
+        mFunGifFragment = (FunGifFragment) manager.findFragmentByTag("FunGifFragment");
     }
 
 
@@ -147,7 +149,6 @@ public class MainActivity extends BaseActivity<MainViewContract.Persenter> imple
     protected int getLayout() {
         return R.layout.activity_main;
     }
-
 
 
     public void switchFragment(Fragment target) {

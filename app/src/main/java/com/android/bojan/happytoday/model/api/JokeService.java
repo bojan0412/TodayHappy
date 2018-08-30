@@ -1,5 +1,6 @@
 package com.android.bojan.happytoday.model.api;
 
+import com.android.bojan.happytoday.model.entry.GifBean;
 import com.android.bojan.happytoday.model.entry.JokeBean;
 import com.android.bojan.happytoday.model.entry.NewsBean;
 
@@ -28,4 +29,8 @@ public interface JokeService {
     //新闻头条
     @GET("toutiao/index?")
     Observable<NewsBean> getNewsTopData(@Query("type") String type, @Query("key") String appKey);
+
+    //GIF图
+    @GET("joke/randJoke.php")
+    Observable<GifBean> getGIfData(@Query("key") String appKey, @Query("type") String type);
 }

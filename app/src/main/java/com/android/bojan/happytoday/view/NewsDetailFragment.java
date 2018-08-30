@@ -58,12 +58,7 @@ public class NewsDetailFragment extends BaseFragment<NewsContract.presenter> imp
         mAdapter = new NewsDataAdapter();
         mAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         mSrl.setColorSchemeColors(Color.RED, Color.RED);
-        mSrl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                fetchData();
-            }
-        });
+        mSrl.setOnRefreshListener(this::fetchData);
         mRvNewDetail.setAdapter(mAdapter);
         mRvNewDetail.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvNewDetail.addOnItemTouchListener(new SimpleClickListener(){
